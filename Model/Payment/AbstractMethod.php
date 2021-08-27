@@ -205,7 +205,8 @@ abstract class AbstractMethod extends \Magento\Payment\Model\Method\AbstractMeth
             if ($body['mainPaymentMethodId'] === PaymentMethod::PIX) {
                 $transaction = $bill['Transactions']['0'];
                 $payment->setAdditionalInformation('print_url', $transaction['Boleto']['page']);
-                $payment->setAdditionalInformation('due_at', $transaction['payday']);
+                $payment->setAdditioPix('due_at', $transaction['payday']);
+                $body['PaymentMethodPix']['instructions'] = 'Pedido '.$order->getIncrementId();
             }
 
             if (
