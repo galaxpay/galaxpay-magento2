@@ -27,6 +27,8 @@ Formas de pagamento: Cartão de Crédito, Boleto e Pix. (Lembrando que estas dev
 > `bin/magento setup:upgrade`
 - O módulo **GalaxPay_Payment** deverá ser exibido na lista de módulos do Magento
 > `bin/magento module:status`
+- Habilitar o módulo do Galax Pay
+`bin/magento module:enable GalaxPay_Payment`
 
 #### Via [git](https://github.com)
 - Vá até o diretório raíz do Magento e adicione o módulo
