@@ -1,0 +1,1 @@
+# galaxpay-magento2
