@@ -191,6 +191,8 @@ abstract class AbstractMethod extends \Magento\Payment\Model\Method\AbstractMeth
             if ($installments = $payment->getAdditionalInformation('installments')) {
                 $body['PaymentMethodCreditCard']['qtdInstallments'] = (int)$installments;
             }
+        } else if ($body['mainPaymentMethodId'] === PaymentMethod::PIX) {
+            $body['PaymentMethodPix']['instructions'] = 'Pedido '.$order->getIncrementId();
         }
 
         
@@ -201,12 +203,12 @@ abstract class AbstractMethod extends \Magento\Payment\Model\Method\AbstractMeth
                 $payment->setAdditionalInformation('print_url', $transaction['Boleto']['pdf']);
                 $payment->setAdditionalInformation('due_at', $transaction['payday']);
             }
-            
+        
             if ($body['mainPaymentMethodId'] === PaymentMethod::PIX) {
                 $transaction = $bill['Transactions']['0'];
-                $payment->setAdditionalInformation('print_url', $transaction['Boleto']['page']);
+                $payment->setAdditionalInformation('print_url', $transaction['Pix']['page']);
                 $payment->setAdditioPix('due_at', $transaction['payday']);
-                $body['PaymentMethodPix']['instructions'] = 'Pedido '.$order->getIncrementId();
+                
             }
 
             if (
