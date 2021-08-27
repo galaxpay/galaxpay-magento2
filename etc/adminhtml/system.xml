@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1000" translate="label">
+            <group id="GalaxPay" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>GalaxPay - Credit Card</label>
+                <field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label"
+                       type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>GalaxPay\Payment\Model\Config\Backend\ApiKeyValidator</backend_model>
+                </field>
+                <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label"
+                       type="text">
+                    <label>Title</label>
+                </field>
+                <field id="allow_installments" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="70"
+                       translate="label" type="select">
+                    <label>Allow Installments</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="max_installments" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80"
+                       translate="label" type="text">
+                    <label>Max Installments</label>
+                </field>
+                <field id="min_installment_value" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90"
+                       translate="label" type="text">
+                    <label>Min Installment Value</label>
+                </field>
+                <field id="order_status" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="100"
+                       translate="label" type="select">
+                    <label>New Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
+            </group>
+            <group id="GalaxPay_boleto" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label comment">
+                <label>GalaxPay - Boleto Bancário</label>
+                <field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label"
+                       type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>GalaxPay\Payment\Model\Config\Backend\ApiKeyValidator</backend_model>
+                </field>
+                <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label"
+                       type="text">
+                    <label>Title</label>
+                </field>
+            </group>
+            <group id="GalaxPay_pix" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label comment">
+                <label>GalaxPay - Pix</label>
+                <field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label"
+                       type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>GalaxPay\Payment\Model\Config\Backend\ApiKeyValidator</backend_model>
+                </field>
+                <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label"
+                       type="text">
+                    <label>Title</label>
+                </field>
+            </group>
+        </section>
+
+        <tab id="GalaxPay" sortOrder="999" translate="label">
+            <label>GalaxPay</label>
+        </tab>
+        <section id="galaxpayconfiguration" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10"
+                 translate="label">
+            <label>Configuration</label>
+            <tab>GalaxPay</tab>
+            <resource>GalaxPay_Payment::config_GalaxPay_Payment</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>General</label>
+                <field id="mode" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20"
+                       translate="label"
+                       type="select">
+                    <label>Mode</label>
+                    <source_model>GalaxPay\Payment\Model\Config\Source\Mode</source_model>
+                </field>
+                <field id="api_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label"
+                       type="text">
+                    <label>Api ID</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="api_hash" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label"
+                       type="text">
+                    <label>Api Key</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="webhook_key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50"
+                       translate="label" type="text">
+                    <label>Webhook Hash</label>
+                    <comment model="GalaxPay\Payment\Model\WebhookKey"/>
+                    <frontend_model>GalaxPay\Payment\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

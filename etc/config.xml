@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <GalaxPay>
+                <active>1</active>
+                <model>GalaxPay\Payment\Model\Payment\GalaxPay</model>
+                <allow_installments>0</allow_installments>
+                <order_status>pending</order_status>
+                <title>GalaxPay</title>
+                <allowspecific>0</allowspecific>
+                <payment_action>authorize_capture</payment_action>
+                <group>offline</group>
+            </GalaxPay>
+            <GalaxPay_boleto>
+                <active>1</active>
+                <model>GalaxPay\Payment\Model\Payment\Boleto</model>
+                <title>GalaxPay - Boleto Bancário</title>
+                <order_status>pending</order_status>
+                <allowspecific>0</allowspecific>
+                <payment_action>authorize</payment_action>
+                <group>offline</group>
+            </GalaxPay_boleto>
+            <GalaxPay_pix>
+                <active>1</active>
+                <model>GalaxPay\Payment\Model\Payment\Pix</model>
+                <title>GalaxPay - Pix</title>
+                <order_status>pending</order_status>
+                <allowspecific>0</allowspecific>
+                <payment_action>authorize</payment_action>
+                <group>offline</group>
+            </GalaxPay_pix>
+        </payment>
+        <GalaxPayconfiguration>
+            <general>
+                <mode>2</mode>
+                <test>values</test>
+            </general>
+        </GalaxPayconfiguration>
+    </default>
+</config>

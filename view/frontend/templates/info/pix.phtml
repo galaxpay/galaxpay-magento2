@@ -1,0 +1,10 @@
+<?php if ($block->canShowBoletoInfo()) : ?>
+    <dl class="payment-method">
+        <dt class="title"><strong><?php echo $block->escapeHtml($block->getMethod()->getTitle()) ?></strong></dt>
+        <dd class="content">
+            <br/>
+            <p><?php echo '<a target="_blank" href="'. $block->getPrintUrl() . '">Ver QR Code</a>' ?></p>
+            <br/>
+        </dd>
+    </dl>
+<?php endif; ?>

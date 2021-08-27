@@ -1,0 +1,23 @@
+{
+    "name": "galaxpay/galaxpay-magento2",
+    "description": "Módulo Galax Pay para Magento 2",
+    "type": "magento2-module",
+    "version": "1.1.0",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "email": "suporte.integracao@galaxpay.com.br",
+            "name": "Suporte Integração Galax Pay"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "GalaxPay\\Payment\\": ""
+        }
+    }
+}

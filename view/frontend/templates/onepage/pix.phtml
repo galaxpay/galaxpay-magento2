@@ -1,0 +1,4 @@
+<?php if ($this->canShowBoleto()) : ?>
+    <br/>
+    <button id="GalaxPay-pix-button-print" type="button" class="action primary checkout" title="Print GalaxPay Pix" onclick="window.open('<?php echo $block->getBoletoPrintUrl() ?>', '_blank')"><?php echo __('See QR Code Pix') ?></button>
+<?php endif; ?>
