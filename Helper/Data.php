@@ -58,6 +58,21 @@ class Data extends AbstractHelper
         return $this->getModuleGeneralConfig('token_webhook');
     }
 
+    public function getDaysBoleto()
+    {
+        return $this->getModuleGeneralConfig('days_payday_boleto');
+    }
+
+    public function getQtdTimeToPayPix()
+    {
+        return $this->getModuleGeneralConfig('days_payday_pix');
+    }
+
+    public function getTypeTimePix()
+    {
+        return $this->getModuleGeneralConfig('time_pix');
+    }
+
     public function getMode()
     {
         return $this->getModuleGeneralConfig('mode');

@@ -17,10 +17,7 @@ class Customer
     public function getNode($order)
     {
         $billing = $order->getBillingAddress();
-        //if (!$order->getCustomerIsGuest()) {//????????????????
         $customer = $this->customerRepository->get($billing->getEmail());
-        //}
-
         //  $customer = $this->customerRepository->getById($order->getCustomerId());
         $zipCode = $billing->getPostcode();
         if (empty($zipCode)) {
@@ -55,17 +52,6 @@ class Customer
         ];
 
         return $customerGalaxPay;
-        // $customerId = $this->createCustomer($customerGalaxPay);
-        // $customerId = $customerId['galaxPayId'];
-
-        // if ($customerId === false) {
-        //     $this->messageManager->addErrorMessage(__('Failed while registering user. Check the data and try again'));
-        //     throw new \Magento\Framework\Exception\LocalizedException(
-        //         __('Failed while registering user. Check the data and try again')
-        //     );
-        // }
-
-        // return $customerId;
     }
 
     /**
@@ -86,14 +72,7 @@ class Customer
 
     public function formatPhone($phone)
     {
-        $digits = preg_replace('/^0|\D+/', '', $phone);
-        return $digits;
-        // $digits = strlen('55' . preg_replace('/^0|\D+/', '', $phone));
-        // $phone_types = [
-        //     12 => 'landline',
-        //     13 => 'mobile',
-        // ];
-
-        // return array_key_exists($digits, $phone_types) ? $phone_types[$digits] : null;
+        return preg_replace('/^0|\D+/', '', $phone);
     }
+
 }

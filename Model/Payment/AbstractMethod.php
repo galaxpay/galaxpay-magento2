@@ -183,8 +183,10 @@ abstract class AbstractMethod extends \Magento\Payment\Model\Method\AbstractMeth
             'Customer' => $customer,
             'mainPaymentMethodId' => $this->getPaymentMethodCode(),
             'value' => $total,
-            'payday' =>  date('Y-m-d')
+            'payday' => date('Y-m-d')
         ];
+
+        $helperData = $this->profile->helperData;
 
         if ($body['mainPaymentMethodId'] === PaymentMethod::CREDIT_CARD) {
             $body['PaymentMethodCreditCard'] = $this->profile->getNodeCard($payment);
@@ -193,10 +195,13 @@ abstract class AbstractMethod extends \Magento\Payment\Model\Method\AbstractMeth
             }
         } else if ($body['mainPaymentMethodId'] === PaymentMethod::PIX) {
             $body['PaymentMethodPix']['instructions'] = 'Pedido '.$order->getIncrementId();
+            $body['PaymentMethodPix']['Deadline']['type'] = $helperData->getTypeTimePix();
+            $body['PaymentMethodPix']['Deadline']['value'] = $helperData->getQtdTimeToPayPix();
+        } else if ($body['mainPaymentMethodId'] === PaymentMethod::BOLETO) {
+            $body['PaymentMethodBoleto']['deadlineDays'] = $helperData->getDaysBoleto();
+            $body['PaymentMethodBoleto']['instructions'] = 'Pedido '.$order->getIncrementId();
         }
-
         
-
         if ($bill = $this->bill->create($body)) {
             if ($body['mainPaymentMethodId'] === PaymentMethod::BOLETO) {
                 $transaction = $bill['Transactions']['0'];

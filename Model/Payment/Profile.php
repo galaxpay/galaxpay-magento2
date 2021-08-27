@@ -7,7 +7,7 @@ use GalaxPay\Payment\Helper\Data;
 class Profile
 {
     private $api;
-    private $helperData;
+    public $helperData;
 
     public function __construct(Api $api, Data $helperData, PaymentMethod $paymentMethod)
     {

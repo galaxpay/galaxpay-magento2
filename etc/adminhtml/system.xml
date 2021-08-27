@@ -46,6 +46,11 @@
                        type="text">
                     <label>Title</label>
                 </field>
+                <field id="days_payday_boleto" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90"
+                       translate="label" type="text">
+                    <label>Days given to the customer to pay</label>
+                    <comment model="GalaxPay\Payment\Model\DaysBoleto"/>
+                </field>
             </group>
             <group id="GalaxPay_pix" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label comment">
                 <label>GalaxPay - Pix</label>
@@ -58,6 +63,27 @@
                 <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label"
                        type="text">
                     <label>Title</label>
+                </field>
+                <field name="time_pix" formElement="select" sortOrder="20">
+                    <argument name="data" xsi:type="array">
+                        <item name="options" xsi:type="object">GalaxPay\Payment\Model\Source\TypeTimePix</item>
+                        <item name="config" xsi:type="array">
+                            <item name="source" xsi:type="string">TypeTimePix</item>
+                        </item>
+                    </argument>
+                    <settings>
+                        <dataType>text</dataType>
+                        <label translate="true">Blog Category</label>
+                        <dataScope>category</dataScope>
+                        <validation>
+                            <rule name="required-entry" xsi:type="boolean">true</rule>
+                        </validation>
+                    </settings>
+                </field>
+                <field id="days_payday_pix" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90"
+                       translate="label" type="text">
+                    <label>Time that QRCode will be available to pay</label>
+                    <comment model="GalaxPay\Payment\Model\TimePix"/>
                 </field>
             </group>
         </section>
