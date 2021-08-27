@@ -35,57 +35,26 @@ class ChargeRejected
             return false;
         }
 
-        $gatewayMessage = $charge['Transaction']['status'];
+        //$gatewayMessage = 'Motive: '.$charge['Transaction']['status'];
+        $gatewayMessage = '';//nao temos o motivo na api por enquanto
 
         $order->addStatusHistoryComment(__(sprintf(
-                    'Payment rejected. Motive: "%s"',
+                    'Payment rejected. "%s"',
                     $gatewayMessage
                 )));
                 $order->setState(\Magento\Sales\Model\Order::STATE_CANCELED, true, __(sprintf(
-                    'All payment tries were rejected. Motive: "%s".',
+                    'All payment tries were rejected. "%s".',
                     $gatewayMessage
                 )), true);
                 $order->setStatus(\Magento\Sales\Model\Order::STATE_CANCELED, true, __(sprintf(
-                    'All payment tries were rejected. Motive: "%s".',
+                    'All payment tries were rejected. "%s".',
                     $gatewayMessage
                 )), true);
                 $this->logger->info(__(sprintf(
-                    'All payment tries were rejected. Motive: "%s".',
+                    'All payment tries were rejected. "%s".',
                     $order->getId(),
                     $gatewayMessage
                 )));
-
-        // $isLastAttempt = $charge['next_attempt'] === null;
-
-        // if ($isLastAttempt) {
-        //     $order->addStatusHistoryComment(__(sprintf(
-        //         'Payment rejected. Motive: "%s"',
-        //         $gatewayMessage
-        //     )));
-        //     $order->setState(\Magento\Sales\Model\Order::STATE_CANCELED, true, __(sprintf(
-        //         'All payment tries were rejected. Motive: "%s".',
-        //         $gatewayMessage
-        //     )), true);
-        //     $order->setStatus(\Magento\Sales\Model\Order::STATE_CANCELED, true, __(sprintf(
-        //         'All payment tries were rejected. Motive: "%s".',
-        //         $gatewayMessage
-        //     )), true);
-        //     $this->logger->info(__(sprintf(
-        //         'All payment tries were rejected. Motive: "%s".',
-        //         $order->getId(),
-        //         $gatewayMessage
-        //     )));
-        // } else {
-        //     $order->addStatusHistoryComment(__(sprintf(
-        //         'Payment try rejected. Motive: "%s". A new try will be made',
-        //         $gatewayMessage
-        //     )));
-        //     $this->logger->info(__(sprintf(
-        //         'Payment try rejected. Motive: "%s". A new try will be made',
-        //         $order->getId(),
-        //         $gatewayMessage
-        //     )));
-        // }
 
         $order->save();
 
@@ -100,6 +69,6 @@ class ChargeRejected
             return false;
         }
 
-        return $this->order->getOrder($billId);//compact('bill'));
+        return $this->order->getOrder($billId);
     }
 }
