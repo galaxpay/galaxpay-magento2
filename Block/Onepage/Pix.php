@@ -23,7 +23,7 @@ class Pix extends \Magento\Framework\View\Element\Template
     public function canShowBoleto()
     {
         $order = $this->getOrder();
-        if ($order->getPayment()->getMethod() === \GalaxPay\Payment\Model\Payment\Boleto::CODE) {
+        if ($order->getPayment()->getMethod() === \GalaxPay\Payment\Model\Payment\Pix::CODE) {
             return true;
         }
 
