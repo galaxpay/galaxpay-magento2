@@ -1,9 +1,7 @@
-<p align="center"><img src ="https://www.galaxpay.com.br/view/general/images/logo-verde.png" width="30%" height="30%" /></p>
+<p align="center"><img src ="https://www.galaxpay.com.br/view/general/images/logo-verde.png" width="40%" height="40%" /></p>
 
 ##
 # Galax Pay - Magento 2
-
-[![Licença do Software][badge-license]](LICENSE)
 
 # Descrição
 A integração do módulo da Galax Pay permite a venda através do Magento 2 de forma transparente.
@@ -73,8 +71,3 @@ Formas de pagamento: Cartão de Crédito, Boleto e Pix. (Lembrando que estas dev
 ## Dúvidas
 Caso necessite de informações sobre a plataforma ou a API, por favor, siga através do canal 
 https://docs.galaxpay.com.br/
-
-
-
-## Licença
-GNU GPLv3. Por favor, veja o [Arquivo de Licença](LICENSE) para mais informações.
