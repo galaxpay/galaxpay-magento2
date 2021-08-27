@@ -4,5 +4,8 @@
         <referenceContainer name="content">
             <block class="GalaxPay\Payment\Block\Onepage\Boleto" name="checkout.success.GalaxPay.boleto" template="onepage/boleto.phtml" cacheable="false"/>
         </referenceContainer>
+         <referenceContainer name="content">
+            <block class="GalaxPay\Payment\Block\Onepage\Pix" name="checkout.success.GalaxPay.pix" template="onepage/pix.phtml" cacheable="false"/>
+        </referenceContainer>
     </body>
 </page>
