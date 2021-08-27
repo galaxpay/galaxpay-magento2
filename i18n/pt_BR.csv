@@ -41,6 +41,7 @@
 "Title","Título"
 "Api Key","Chave do Webservice no Galax Pay"
 "Api Id","Id da sua conta no Galax Pay"
+"Token Webhook","Token de segurança do Webhook"
 "Payment Action","Ação de pagamento"
 "Api Endpoint","Endpoint da Api"
 "Allow Installments","Permitir Parcelamento"

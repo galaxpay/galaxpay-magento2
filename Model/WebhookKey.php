@@ -19,8 +19,7 @@ class WebhookKey implements CommentInterface
         ) .
         " <strong>" .
         $this->urlInterface->getBaseUrl() .
-        "GalaxPayPayment/index/webhook?key=" .
-        $elementValue .
+        "GalaxPayPayment/index/webhook" .
         "</strong>";
     }
 }

@@ -32,7 +32,8 @@ class Webhook extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
-        if (!$this->validateRequest()) {
+        $body = file_get_contents('php://input');
+        if (!$this->validateRequest($body)) {
             $ip = $this->webhookHandler->getRemoteIp();
 
             $this->logger->error(__(sprintf('Invalid webhook attempt from IP %s', $ip)));
@@ -40,7 +41,7 @@ class Webhook extends \Magento\Framework\App\Action\Action
             return;
         }
 
-        $body = file_get_contents('php://input');
+        
         $this->logger->info(__(sprintf("Webhook New Event!\n%s", $body)));
 
         $this->webhookHandler->handle($body);
@@ -51,12 +52,10 @@ class Webhook extends \Magento\Framework\App\Action\Action
      *
      * @return bool
      */
-    private function validateRequest()
+    private function validateRequest($body)
     {
-        return true;
-        $systemKey = $this->helperData->getWebhookKey();
-        $requestKey = $this->getRequest()->getParam('key');
-
+        $systemKey = $this->helperData->getWebhookToken();
+        $requestKey = $body['confirmHash'];
         return $systemKey === $requestKey;
     }
 }

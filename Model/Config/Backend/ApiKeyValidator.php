@@ -59,7 +59,7 @@ class ApiKeyValidator extends ConfigValue
     {
         $apiKey = $this->helperData->getModuleGeneralConfig("api_hash");
         $apiId = $this->helperData->getModuleGeneralConfig("api_id");
-         $value = $this->getValue();
+        $value = $this->getValue();
 
         if ($value) {
             if (!$apiKey) {

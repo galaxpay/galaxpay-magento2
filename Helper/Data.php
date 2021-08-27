@@ -53,9 +53,9 @@ class Data extends AbstractHelper
         return $this->getCreditCardConfig('verify_method');
     }
 
-    public function getWebhookKey()
+    public function getWebhookToken()
     {
-        return $this->getModuleGeneralConfig('webhook_key');
+        return $this->getModuleGeneralConfig('token_webhook');
     }
 
     public function getMode()
