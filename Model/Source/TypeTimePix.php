@@ -1,6 +1,6 @@
 <?php
 
-namespace GalaxPay\Payment\Model;
+namespace GalaxPay\Payment\Model\Source;
 
 use \Magento\Framework\Option\ArrayInterface;
 
