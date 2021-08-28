@@ -61,18 +61,18 @@
                     <backend_model>GalaxPay\Payment\Model\Config\Backend\ApiKeyValidator</backend_model>
                 </field>
                 
-                <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label"
+                <field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="11" translate="label"
                        type="text">
                     <label>Title</label>
                 </field>
 
-                <field id="time_pix" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label"
+                <field id="time_pix" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="12" translate="label"
                        type="select">
                     <label>QRCode Type of expiration</label>
                     <source_model>GalaxPay\Payment\Model\Source\TypeTimePix</source_model>
                 </field>
 
-                <field id="days_payday_pix" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90"
+                <field id="days_payday_pix" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="13"
                        translate="label" type="text">
                     <label>Time that QRCode will be available to pay</label>
                     <comment model="GalaxPay\Payment\Model\TimePix"/>

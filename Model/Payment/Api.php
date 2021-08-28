@@ -36,14 +36,15 @@ class Api extends \Magento\Framework\Model\AbstractModel
         $requestToken = $this->getTokenToUse();
 
         $url = $this->base_path . $endpoint;
-        $body = json_encode($data);
+       
         $requestId = number_format(microtime(true), 2, '', '');
         //nao gravar no log dados de cartao
-        $dataToLog = $body;
+        $dataToLog = $data;
         unset($dataToLog['PaymentMethodCreditCard']['Card']['number']);
         unset($dataToLog['PaymentMethodCreditCard']['Card']['holder']);
         unset($dataToLog['PaymentMethodCreditCard']['Card']['expiresAt']);
         unset($dataToLog['PaymentMethodCreditCard']['Card']['cvv']); 
+        $body = json_encode($data);
         $dataToLog = null !== $dataToLog ? json_encode($dataToLog) :'';
         $this->logger->info(__(sprintf(
             '[Request #%s]: New Api Request.\n%s %s\n%s',
