@@ -2,31 +2,20 @@
 
 namespace GalaxPay\Payment\Model;
 
-use Magento\Catalog\Model\ResourceModel\Category\CollectionFactory;
-use Magento\Framework\Data\OptionSourceInterface;
+use \Magento\Framework\Option\ArrayInterface;
 
 class TypeTimePix implements OptionSourceInterface
 {
-    /**
-     * @var CollectionFactory
-     */
-    protected $collectionFactory;
-
-    public function __construct(
-        CollectionFactory $collectionFactory
-    ) {
-        $this->collectionFactory = $collectionFactory;
-    }
-
+ 
     public function toOptionArray()
     {
         $options[] = ['label' => '-- Please Select --', 'value' => ''];
         $options[] = [
-            'label' => 'Minutos',
+            'label' => __('Minutes'),
             'value' => 'minutes',
         ];
         $options[] = [
-            'label' => 'Dias',
+            'label' => __('Days'),
             'value' => 'days',
         ];
 
