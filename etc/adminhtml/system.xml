@@ -116,7 +116,7 @@
                     <validate>required-entry</validate>
                 </field>
                 <field id="webhook_key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50"
-                       translate="label" type="link">
+                       translate="label" type="note">
                     <label>Webhook Url</label>
                     <comment model="GalaxPay\Payment\Model\WebhookKey"/>
                     <frontend_model>GalaxPay\Payment\Block\System\Config\Form\Field\Disable</frontend_model>
