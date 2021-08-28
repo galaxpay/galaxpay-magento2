@@ -72,12 +72,6 @@
                     <source_model>GalaxPay\Payment\Model\Source\TypeTimePix</source_model>
                     <comment model="GalaxPay\Payment\Model\TimePix"/>
                 </field>
-                
-                <field id="days_payday_pix" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90"
-                       translate="label" type="text">
-                    <label>Time that QRCode will be available to pay</label>
-                    
-                </field>
             </group>
         </section>
 
