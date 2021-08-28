@@ -62,17 +62,17 @@ class Data extends AbstractHelper
 
     public function getDaysBoleto()
     {
-        return $this->getModuleGeneralConfig('days_payday_boleto','GalaxPay_boleto');
+        return $this->getCreditCardConfig('days_payday_boleto','GalaxPay_boleto');
     }
 
     public function getQtdTimeToPayPix()
     {
-        return $this->getModuleGeneralConfig('days_payday_pix','GalaxPay_pix');
+        return $this->getCreditCardConfig('days_payday_pix','GalaxPay_pix');
     }
 
     public function getTypeTimePix()
     {
-        return $this->getModuleGeneralConfig('time_pix','GalaxPay_pix');
+        return $this->getCreditCardConfig('time_pix','GalaxPay_pix');
     }
 
     public function getMode()
