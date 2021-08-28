@@ -66,10 +66,15 @@
                     <label>Title</label>
                 </field>
 
-                <field id="days_payday_pix" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label"
+                <field id="time_pix" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label"
                        type="select">
-                    <label>Time that QRCode will be available to pay</label>
+                    <label>QRCode Type of expiration</label>
                     <source_model>GalaxPay\Payment\Model\Source\TypeTimePix</source_model>
+                </field>
+
+                <field id="days_payday_pix" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90"
+                       translate="label" type="text">
+                    <label>Time that QRCode will be available to pay</label>
                     <comment model="GalaxPay\Payment\Model\TimePix"/>
                 </field>
             </group>
