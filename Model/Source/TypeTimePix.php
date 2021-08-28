@@ -1,10 +1,8 @@
 <?php
 
-namespace GalaxPay\Payment\Model\Source;
+namespace GalaxPay\Payment\Model\Source; 
 
-use \Magento\Framework\Option\ArrayInterface;
-
-class TypeTimePix implements OptionSourceInterface
+class TypeTimePix implements \Magento\Framework\Option\ArrayInterface
 {
  
     public function toOptionArray()
