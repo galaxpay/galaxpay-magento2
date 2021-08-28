@@ -55,6 +55,7 @@ class Webhook extends \Magento\Framework\App\Action\Action
     private function validateRequest($body)
     {
         $systemKey = $this->helperData->getWebhookToken();
+        $body = json_decode($body,true);
         $requestKey = $body['confirmHash'];
         return $systemKey === $requestKey;
     }
