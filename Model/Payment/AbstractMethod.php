@@ -198,8 +198,11 @@ abstract class AbstractMethod extends \Magento\Payment\Model\Method\AbstractMeth
             $body['PaymentMethodPix']['Deadline']['type'] = $helperData->getTypeTimePix();
             $body['PaymentMethodPix']['Deadline']['value'] = $helperData->getQtdTimeToPayPix();
         } else if ($body['mainPaymentMethodId'] === PaymentMethod::BOLETO) {
-            $body['PaymentMethodBoleto']['deadlineDays'] = $helperData->getDaysBoleto();
             $body['PaymentMethodBoleto']['instructions'] = 'Pedido '.$order->getIncrementId();
+        }
+
+        if ($body['mainPaymentMethodId'] === PaymentMethod::BOLETO) {
+            $body['payday'] = date('Y-m-d', strtotime($body['payday']. ' + '.$helperData->getDaysBoleto().' days'));
         }
         
         if ($bill = $this->bill->create($body)) {

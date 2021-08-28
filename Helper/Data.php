@@ -17,6 +17,8 @@ class Data extends AbstractHelper
         parent::__construct($context);
     }
 
+    
+
     public function getCreditCardConfig($field, $group = 'GalaxPay')
     {
         return $this->scopeConfig->getValue(
@@ -60,17 +62,17 @@ class Data extends AbstractHelper
 
     public function getDaysBoleto()
     {
-        return $this->getModuleGeneralConfig('days_payday_boleto');
+        return $this->getModuleGeneralConfig('days_payday_boleto','GalaxPay_boleto');
     }
 
     public function getQtdTimeToPayPix()
     {
-        return $this->getModuleGeneralConfig('days_payday_pix');
+        return $this->getModuleGeneralConfig('days_payday_pix','GalaxPay_pix');
     }
 
     public function getTypeTimePix()
     {
-        return $this->getModuleGeneralConfig('time_pix');
+        return $this->getModuleGeneralConfig('time_pix','GalaxPay_pix');
     }
 
     public function getMode()
