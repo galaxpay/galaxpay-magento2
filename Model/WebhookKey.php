@@ -14,9 +14,7 @@ class WebhookKey implements CommentInterface
 
     public function getCommentText($elementValue)
     {
-        return sprintf(
-            __("Esse hash é gerado automaticamente")
-        ) .
+        return
         " <strong>" .
         $this->urlInterface->getBaseUrl() .
         "GalaxPayPayment/index/webhook" .
