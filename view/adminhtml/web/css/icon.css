@@ -3,7 +3,7 @@ font-family:'GalaxPay';
 src: url('icomoon.ttf')
 }
 
-#menu-GalaxPay-payment-first-level-demo > a:before {
+#menu-galaxPay-payment-first-level-demo > a:before {
     font-family: 'GalaxPay';
     content: "\e900";
     display: block;
