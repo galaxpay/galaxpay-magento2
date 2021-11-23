@@ -71,7 +71,7 @@ class BillPaid
 
             return false;
         }
-
+        
         $invoice = $order->prepareInvoice();
         $invoice->setRequestedCaptureCase(Invoice::CAPTURE_OFFLINE);
         $invoice->register();

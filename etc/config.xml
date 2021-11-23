@@ -7,7 +7,7 @@
                 <model>GalaxPay\Payment\Model\Payment\GalaxPay</model>
                 <allow_installments>0</allow_installments>
                 <order_status>pending</order_status>
-                <title>GalaxPay</title>
+                <title>GalaxPay - Cartão de Crédito</title>
                 <allowspecific>0</allowspecific>
                 <payment_action>authorize_capture</payment_action>
                 <group>offline</group>

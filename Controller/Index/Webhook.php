@@ -33,6 +33,7 @@ class Webhook extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         $body = file_get_contents('php://input');
+        
         if (!$this->validateRequest($body)) {
             $ip = $this->webhookHandler->getRemoteIp();
 

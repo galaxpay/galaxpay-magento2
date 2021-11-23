@@ -42,7 +42,7 @@ class Bill
      */
     public function getBill($billId)
     {
-        $response = $this->api->request("charges?limit=1&startAt=0&galaxPayIds={$billId}", 'GET');
+        $response = $this->api->request("charges?limit=1&startAt=0&myIds={$billId}", 'GET');
 
         if (! $response || ! isset($response['Charges']['0'])) {
             return false;

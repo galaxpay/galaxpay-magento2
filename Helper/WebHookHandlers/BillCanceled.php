@@ -50,9 +50,8 @@ class BillCanceled
             $this->logger->error(__('Error while interpreting webhook "bill_canceled"'));
             return false;
         }
-
         /** @var \Magento\Sales\Model\Order $order */
-        if (!($order = $this->getOrderFromBill($bill['myId']))) {
+        if (!($order = $this->order->getOrder($data))) {
             $this->logger->warning(__('Order not found'));
             return false;
         }
@@ -71,15 +70,5 @@ class BillCanceled
 
         return true;
     }
-
-    private function getOrderFromBill($billId)
-    {
-        $bill = $this->bill->getBill($billId);
-
-        if (!$bill) {
-            return false;
-        }
-
-        return $this->order->getOrder($billId);
-    }
+    
 }

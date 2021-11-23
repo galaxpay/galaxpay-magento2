@@ -31,7 +31,6 @@ class Order
         if (!isset($data['Charge'])) {
             return false;
         }
-
         $order = $this->getOrderByBillId($data['Charge']['myId']);
 
         if (!$order || !$order->getId()) {

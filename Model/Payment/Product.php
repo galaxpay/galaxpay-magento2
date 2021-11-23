@@ -29,6 +29,11 @@ class Product
         if ($order->getShippingAmount() > 0) {
             $total += $order->getShippingAmount();
         }
+        
+        $discount = $order->getDiscountAmount() * -1;
+        if ($discount > 0) {
+            $total -= $discount;
+        }
         return $total;
     }
 
