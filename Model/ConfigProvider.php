@@ -68,11 +68,6 @@ class ConfigProvider implements ConfigProviderInterface
         $quote = $this->cart->getQuote();
         $installments = [1 => 'Crédito a vista'];
         
-                $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/test.log');
-        $logger = new \Zend\Log\Logger();
-        $logger->addWriter($writer);
-        $logger->info([$maxInstallmentsNumber]);
-        
         if ($maxInstallmentsNumber > 1 && $allowInstallments == true) {
             $total = $quote->getGrandTotal();
             $installmentsTimes = floor($total / $minInstallmentsValue);
