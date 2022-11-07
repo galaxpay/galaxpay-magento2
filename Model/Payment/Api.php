@@ -159,6 +159,9 @@ class Api extends \Magento\Framework\Model\AbstractModel
         if (!$responseBody) {
             return false;
         }
+        else if(isset($responseBody['error'])){
+            return false;
+        }
         $_SESSION['tokenSavedGalaxPay'] = $responseBody['access_token'];
         $_SESSION['tokenSavedExpiresInGalaxPay'] = $responseBody['expires_in'];
         $_SESSION['tokenSavedCreatedAtGalaxPay'] = date('Y-m-d H:i:s');
