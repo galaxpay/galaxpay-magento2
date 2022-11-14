@@ -16,11 +16,18 @@ class PaymentMethod
 
     public function getCreditCardTypes()
     {
+        $types = [];
         $response = $this->api->request('card-brands', 'GET');
-        $response = $response['CardBrands'];
-        foreach($response as $res){
-             $types[$res['id']] = $res['name'];
-        } 
+        if ($response && isset($response['CardBrands'])) {
+            $response = $response['CardBrands'];
+            foreach ($response as $res) {
+                $types[$res['id']] = $res['name'];
+            }
+        }
+        if (empty($types)) {
+            $types["mastercard"] = "MasterCard";
+            $types["visa"] = "Visa";
+        }
         return $types;
     }
 

@@ -3,6 +3,7 @@
     "description": "Módulo Galax Pay para Magento 2",
     "type": "magento2-module",
     "license": "GPL-3.0-only",
+    "version": "1.0.1",
     "authors": [
         {
             "email": "suporte.integracao@galaxpay.com.br",
